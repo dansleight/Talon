@@ -1,0 +1,88 @@
+﻿@model List<Test.Mvc.Models.PersonModel>
+@{
+    ViewBag.Title = "Responsive";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Responsive</h3>
+    </div>
+    <div class="panel-body panel-grid">
+        @(Html.Talon().Grid(Model).Name("people")
+            .Columns(c =>
+            {
+                c.Bound(m => m.ID);
+                c.Bound(m => m.Name);
+                c.Bound(m => m.Country).ResponsiveHide();
+                c.Bound(m => m.Phone).ResponsiveHide();
+                c.Bound(m => m.Email);
+                c.Buttons(b => b.Button("details").Icon("search")).ResponsiveShow().Width(75).AlignCenter();
+            })
+        )
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Markup</h3>
+    </div>
+    <div class="panel-body">
+<pre style="font-family:Consolas;font-size:13;color:black;background:white;"><span style="background:yellow;">@@(</span>Html.Talon().Grid(Model).Name(<span style="color:#a31515;">"people"</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;.Columns(c&nbsp;=&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.ID);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Name);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Country).ResponsiveHide();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Phone).ResponsiveHide();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Email);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Buttons(b&nbsp;=&gt;&nbsp;b.Button(<span style="color:#a31515;">"details"</span>).Icon(<span style="color:#a31515;">"search"</span>)).ResponsiveShow().Width(75).AlignCenter();
+&nbsp;&nbsp;&nbsp;&nbsp;})
+<span style="background:yellow;">)</span></pre>
+    </div>
+</div>
+
+<div class="modal fade" id="details_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Details</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Name:</label>
+                        <span id="details_name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Country:</label>
+                        <span id="details_country"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Phone:</label>
+                        <span id="details_phone"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Email:</label>
+                        <span id="details_email"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        var details = function (data) {
+            $('#details_name').html(data.Name);
+            $('#details_country').html(data.Country);
+            $('#details_phone').html(data.Phone);
+            $('#details_email').html(data.Email);
+            $("#details_modal").modal();
+        }
+    </script>
+}

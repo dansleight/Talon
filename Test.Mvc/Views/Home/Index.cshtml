@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>EagleRock.net Talon</h1>
+    <p class="lead">Talon is an ASP.NET MVC tool that wraps common, popular javascript libraries in C# methods.</p>
+    <p>Talon to this point was written by Dan Sleight. The best part of Talon is Grid, which is a wrapper for
+    DataTables.net Table plug-in for jQuery. </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Grid</h2>
+        <p>
+            The best part of the suit.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Grid")">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Server Side Tools</h2>
+        <p>Make managing large datasets easier with server-side caching and page/search processing</p>
+        <p><a class="btn btn-default" href="@Url.Action("ServerSide", "Grid")">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Advanced Input</h2>
+        <p>Manage advanced input form fields easier with Talon Input wrappers.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Inputs")">Learn more &raquo;</a></p>
+    </div>
+</div>

@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A6650D0-86D5-4A19-9D1F-280A5D7085AA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Test.Mvc</RootNamespace>
+    <AssemblyName>Test.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GridController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InputController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormModel.cs" />
+    <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="Models\StateModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialize.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Talon\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\Talon\jquery.dataTables.css" />
+    <Content Include="Content\Talon\select2.min.css" />
+    <Content Include="Content\Talon\summernote-bs3.css" />
+    <Content Include="Content\Talon\talon.datatables.css" />
+    <Content Include="Content\Talon\summernote.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\Logo.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="App_Data\TestData.json" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Talon\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\Talon\CKEditor\ckeditor.js" />
+    <Content Include="Scripts\Talon\CKEditor\config.js" />
+    <Content Include="Scripts\Talon\CKEditor\contents.css" />
+    <Content Include="Scripts\Talon\CKEditor\lang\af.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\ar.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\bg.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\bn.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\bs.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\ca.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\cs.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\cy.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\da.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\de.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\el.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\en-au.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\en-ca.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\en-gb.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\en.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\eo.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\es.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\et.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\eu.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\fa.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\fi.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\fo.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\fr-ca.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\fr.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\gl.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\gu.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\he.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\hi.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\hr.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\hu.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\id.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\is.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\it.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\ja.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\ka.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\km.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\ko.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\ku.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\lt.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\lv.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\mk.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\mn.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\ms.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\nb.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\nl.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\no.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\pl.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\pt-br.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\pt.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\ro.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\ru.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\si.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\sk.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\sl.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\sq.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\sr-latn.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\sr.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\sv.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\th.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\tr.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\tt.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\ug.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\uk.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\vi.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\zh-cn.js" />
+    <Content Include="Scripts\Talon\CKEditor\lang\zh.js" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\dialog.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\dialog_ie.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\dialog_ie7.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\dialog_ie8.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\editor.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\editor_gecko.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\editor_ie.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\editor_ie7.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\editor_ie8.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\editor_iequirks.css" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\icons.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\icons_hidpi.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\images\arrow.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\images\close.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\images\hidpi\close.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\images\hidpi\lock-open.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\images\hidpi\lock.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\images\hidpi\refresh.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\images\lock-open.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\images\lock.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\images\refresh.png" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\images\spinner.gif" />
+    <Content Include="Scripts\Talon\CKEditor\styles.js" />
+    <Content Include="Scripts\Talon\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\Talon\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Talon\select2.full.min.js" />
+    <Content Include="Scripts\Talon\select2.min.js" />
+    <Content Include="Scripts\Talon\summernote.min.js" />
+    <Content Include="Scripts\Talon\talon.datatables.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\AsJs.cshtml" />
+    <Content Include="Views\Home\AsTalon.cshtml" />
+    <Content Include="Views\Home\AsTalonAjax.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Grid\Index.cshtml" />
+    <Content Include="Views\Grid\Responsive.cshtml" />
+    <Content Include="Views\Grid\PageSort.cshtml" />
+    <Content Include="Views\Grid\Scrolling.cshtml" />
+    <Content Include="Views\Grid\Formatting.cshtml" />
+    <Content Include="Views\Grid\Custom.cshtml" />
+    <Content Include="Views\Grid\Render.cshtml" />
+    <Content Include="Views\Grid\Buttons.cshtml" />
+    <Content Include="Views\Grid\ServerSide.cshtml" />
+    <Content Include="Views\Input\Summernote.cshtml" />
+    <Content Include="Views\Input\CKEditor.cshtml" />
+    <Content Include="Scripts\Talon\CKEditor\skins\moono\readme.md" />
+    <Content Include="Views\Input\DatePicker.cshtml" />
+    <Content Include="Views\Input\Select2.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EagleRock.Bs\EagleRock.Bs.csproj">
+      <Project>{754c6ff2-a824-4588-8695-bab715d5d615}</Project>
+      <Name>EagleRock.Bs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58076</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58076/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

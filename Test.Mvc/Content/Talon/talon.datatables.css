@@ -1,0 +1,23 @@
+﻿.DTFC_Cloned tr {
+    background-color: white;
+}
+
+.talon-buttons button {
+    margin: 0 1px;
+}
+
+.talon-nowrap {
+    white-space: nowrap;
+}
+
+.panel-grid {
+    padding: 15px 0;
+}
+
+.panel-grid .dataTables_wrapper .dataTables_length {
+    margin-left: 10px;
+}
+
+.panel-grid .dataTables_wrapper .dataTables_filter {
+    margin-right: 20px;
+}

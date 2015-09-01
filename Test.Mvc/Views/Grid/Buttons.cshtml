@@ -1,0 +1,70 @@
+﻿@model List<Test.Mvc.Models.PersonModel>
+@{
+    ViewBag.Title = "Buttons";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Buttons</h3>
+    </div>
+    <div class="panel-body panel-grid">
+        @(Html.Talon().Grid(Model).Name("people")
+            .Columns(c =>
+            {
+                c.Bound(m => m.ID);
+                c.Bound(m => m.Name);
+                c.Bound(m => m.Country);
+                c.Bound(m => m.Phone);
+                c.Bound(m => m.Email);
+                c.Buttons(b =>
+                {
+                    b.Button("edit_person").Icon("edit").Title("Edit").Type("primary");
+                    b.Button("delete_person").Icon("times").Type("danger");
+                }).Width(90).AlignRight();
+            })
+        )
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Markup</h3>
+    </div>
+    <div class="panel-body">
+<pre style="font-family:Consolas;font-size:13;color:black;background:white;"><span style="background:yellow;">@@(</span>Html.Talon().Grid(Model).Name(<span style="color:#a31515;">"people"</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;.Columns(c&nbsp;=&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.ID);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Name);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Country);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Phone);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Email);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Buttons(b&nbsp;=&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.Button(<span style="color:#a31515;">"edit_person"</span>).Icon(<span style="color:#a31515;">"edit"</span>).Title(<span style="color:#a31515;">"Edit"</span>).Type(<span style="color:#a31515;">"primary"</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.Button(<span style="color:#a31515;">"delete_person"</span>).Icon(<span style="color:#a31515;">"times"</span>).Type(<span style="color:#a31515;">"danger"</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}).Width(90).AlignRight();
+&nbsp;&nbsp;&nbsp;&nbsp;})
+<span style="background:yellow;">)</span>
+
+<span style="color:blue;">&lt;</span><span style="color:maroon;">script</span><span style="color:blue;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">var</span>&nbsp;edit_person&nbsp;=&nbsp;<span style="color:blue;">function</span>&nbsp;(row)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span style="color:#a31515;">"editing&nbsp;person:&nbsp;"</span>&nbsp;+&nbsp;row[<span style="color:#a31515;">"ID"</span>]);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">var</span>&nbsp;delete_person&nbsp;=&nbsp;<span style="color:blue;">function</span>&nbsp;(row)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;confirm(<span style="color:#a31515;">"are&nbsp;you&nbsp;sure&nbsp;you&nbsp;want&nbsp;to&nbsp;delete:&nbsp;"</span>&nbsp;+&nbsp;row[<span style="color:#a31515;">"Name"</span>]);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<span style="color:blue;">&lt;/</span><span style="color:maroon;">script</span><span style="color:blue;">&gt;</span></pre>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        var edit_person = function (row) {
+            alert("editing person: " + row["ID"]);
+        }
+        var delete_person = function (row) {
+            confirm("are you sure you want to delete: " + row["Name"]);
+        }
+    </script>
+}

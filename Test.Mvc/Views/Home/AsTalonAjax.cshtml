@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "AsTalonAjax";
+}
+
+<h2>As Talon Ajax</h2>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">As Talon</h3>
+    </div>
+    <div class="panel-body">
+        @(Html.Talon().Grid<Test.Mvc.Models.StateModel>()
+            .Name("grid-states")
+            .Columns(c =>
+            {
+                c.Bound(x => x.Abbreviation).Title("Abbr").ResponsiveHide(ColumnResponsiveSize.xs);
+                c.Bound(x => x.State).Title("Name").Order(2, SortDir.desc);
+                c.Bound(x => x.Statehood).Title("Year").Order(1).AlignCenter();
+                c.Bound(x => x.Capital).Sortable(false).Searchable(false);
+                c.Bound(x => x.LandArea);
+                c.Bound(x => x.Population).ResponsiveShow();
+                c.Buttons(b =>
+                {
+                    b.Button("editState").Icon("edit").Type("primary");
+                    b.Button("deleteState").Icon("times").Type("danger");
+                }).Width(75).AlignCenter();
+                @*c.Bound(x => x.TheDate).Format("d MMM yyyy").AlignRight();
+                c.Custom(@<text><em>{Capital}</em>, {Abbreviation}</text>).Title("Test");
+                c.Render("dude").Title("Dude");
+                c.Bound(x => x.Abbreviation).Title("Sweet").Render("Dude");*@
+            })
+            .AjaxSource(Url.Action("ServerSideData", "Home"))
+            // .Freeze()
+        )
+    </div>
+</div>
+
+@section scripts {
+    
+    <script>
+        //var dude = function (data, type, row) {
+        //    return "'" + row["Abbreviation"] + "': " + row["Capital"];
+        //}
+        var editState = function (row) {
+            alert("Editing state: " + row["State"]);
+        }
+        var deleteState = function (row) {
+            confirm("Are you sure you want to delete " + row["State"] + "?");
+        }
+    </script>
+}

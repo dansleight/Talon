@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+
+@section styles {
+    <link href="~/Content/jquery.dataTables.css" rel="stylesheet" />
+    <style>
+            /*.dataTables_filter label {
+            display: none;
+        }*/
+            .DTFC_Cloned tr {
+                background-color: white;
+            }
+    </style>
+
+}
+
+<h2>Test</h2>
+
+<div class="panel panel-primary table-responsive">
+    <div class="panel-heading">
+        <h3 class="panel-title">Test</h3>
+    </div>
+    <div class="panel-body">
+        <table id="grid-states" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
+        <script>
+            var dbData = [
+                {
+                    "Abbreviation": "AL",
+                    "State": "Alabama",
+                    "Statehood": "1819",
+                    "Capital": "Montgomery",
+                    "LandArea": "155.4",
+                    "TheDate": {
+                        "display": "9/4/1819 6:09:58 PM",
+                        "timestamp": "18190904060958"
+                    },
+                    "Population": "580300"
+                }, {
+                    "Abbreviation": "AK",
+                    "State": "Alaska",
+                    "Statehood": "1959",
+                    "Capital": "Juneau",
+                    "LandArea": "2716.7",
+                    "TheDate": {
+                        "display": "11/27/1959 9:02:43 AM",
+                        "timestamp": "19591127090243"
+                    },
+                    "Population": "31275"
+                }, {
+                    "Abbreviation": "AZ", "State": "Arizona", "Statehood": "1912", "Capital": "Phoenix", "LandArea": "474.9", "TheDate": { "display": "11/22/1912 8:34:35 PM", "timestamp": "19121122083435" }, "Population": "5638519"
+                }, { "Abbreviation": "AR", "State": "Arkansas", "Statehood": "1836", "Capital": "Little Rock", "LandArea": "116.2", "TheDate": { "display": "5/20/1836 10:01:39 PM", "timestamp": "18360520100139" }, "Population": "1070615" }, { "Abbreviation": "CA", "State": "California", "Statehood": "1850", "Capital": "Sacramento", "LandArea": "97.2", "TheDate": { "display": "3/13/1850 6:09:38 AM", "timestamp": "18500313060938" }, "Population": "2993611" }, { "Abbreviation": "CO", "State": "Colorado", "Statehood": "1876", "Capital": "Denver", "LandArea": "153.4", "TheDate": { "display": "8/7/1876 7:47:17 AM", "timestamp": "18760807074717" }, "Population": "3152353" }, { "Abbreviation": "CT", "State": "Connecticut", "Statehood": "1788", "Capital": "Hartford", "LandArea": "17.3", "TheDate": { "display": "4/4/1788 8:32:20 PM", "timestamp": "17880404083220" }, "Population": "1336893" }, { "Abbreviation": "DE", "State": "Delaware", "Statehood": "1787", "Capital": "Dover", "LandArea": "22.4", "TheDate": { "display": "1/9/1787 10:25:39 AM", "timestamp": "17870109102539" }, "Population": "198357" }, { "Abbreviation": "FL", "State": "Florida", "Statehood": "1845", "Capital": "Tallahassee", "LandArea": "95.7", "TheDate": { "display": "2/19/1845 12:00:31 AM", "timestamp": "18450219120031" }, "Population": "548825" }, { "Abbreviation": "GA", "State": "Georgia", "Statehood": "1788", "Capital": "Atlanta", "LandArea": "131.7", "TheDate": { "display": "4/15/1788 3:25:04 PM", "timestamp": "17880415032504" }, "Population": "5688863" }, { "Abbreviation": "HI", "State": "Hawaii", "Statehood": "1959", "Capital": "Honolulu", "LandArea": "85.7", "TheDate": { "display": "2/20/1959 6:02:18 PM", "timestamp": "19590220060218" }, "Population": "1290463" }, { "Abbreviation": "ID", "State": "Idaho", "Statehood": "1890", "Capital": "Boise", "LandArea": "63.8", "TheDate": { "display": "4/24/1890 2:29:16 PM", "timestamp": "18900424022916" }, "Population": "822232" }, { "Abbreviation": "IL", "State": "Illinois", "Statehood": "1818", "Capital": "Springfield", "LandArea": "54", "TheDate": { "display": "8/17/1818 2:44:25 PM", "timestamp": "18180817024425" }, "Population": "324432" }, { "Abbreviation": "IN", "State": "Indiana", "Statehood": "1816", "Capital": "Indianapolis", "LandArea": "361.5", "TheDate": { "display": "9/25/1816 7:13:34 AM", "timestamp": "18160925071334" }, "Population": "2585939" }, { "Abbreviation": "IA", "State": "Iowa", "Statehood": "1846", "Capital": "Des Moines", "LandArea": "75.8", "TheDate": { "display": "2/8/1846 12:20:29 PM", "timestamp": "18460208122029" }, "Population": "783688" }, { "Abbreviation": "KS", "State": "Kansas", "Statehood": "1861", "Capital": "Topeka", "LandArea": "56", "TheDate": { "display": "7/13/1861 5:37:19 AM", "timestamp": "18610713053719" }, "Population": "358297" }, { "Abbreviation": "KY", "State": "Kentucky", "Statehood": "1792", "Capital": "Frankfort", "LandArea": "14.7", "TheDate": { "display": "2/16/1792 8:42:10 PM", "timestamp": "17920216084210" }, "Population": "96285" }, { "Abbreviation": "LA", "State": "Louisiana", "Statehood": "1812", "Capital": "Baton Rouge", "LandArea": "76.8", "TheDate": { "display": "7/9/1812 7:13:01 PM", "timestamp": "18120709071301" }, "Population": "1032037" }, { "Abbreviation": "ME", "State": "Maine", "Statehood": "1820", "Capital": "Augusta", "LandArea": "55.4", "TheDate": { "display": "2/19/1820 9:09:58 PM", "timestamp": "18200219090958" }, "Population": "136250" }, { "Abbreviation": "MD", "State": "Maryland", "Statehood": "1788", "Capital": "Annapolis", "LandArea": "6.73", "TheDate": { "display": "6/2/1788 6:34:43 AM", "timestamp": "17880602063443" }, "Population": "38394" }, { "Abbreviation": "MA", "State": "Massachusetts", "Statehood": "1788", "Capital": "Boston", "LandArea": "48.4", "TheDate": { "display": "5/6/1788 9:50:56 AM", "timestamp": "17880506095056" }, "Population": "5140452" }, { "Abbreviation": "MI", "State": "Michigan", "Statehood": "1837", "Capital": "Lansing", "LandArea": "35", "TheDate": { "display": "10/6/1837 10:31:43 AM", "timestamp": "18371006103143" }, "Population": "578333" }, { "Abbreviation": "MN", "State": "Minnesota", "Statehood": "1858", "Capital": "Saint Paul", "LandArea": "52.8", "TheDate": { "display": "10/17/1858 12:10:07 AM", "timestamp": "18581017121007" }, "Population": "3787959" }, { "Abbreviation": "MS", "State": "Mississippi", "Statehood": "1817", "Capital": "Jackson", "LandArea": "104.9", "TheDate": { "display": "2/20/1817 8:33:50 PM", "timestamp": "18170220083350" }, "Population": "712571" }, { "Abbreviation": "MO", "State": "Missouri", "Statehood": "1821", "Capital": "Jefferson City", "LandArea": "27.3", "TheDate": { "display": "6/2/1821 2:12:25 AM", "timestamp": "18210602021225" }, "Population": "192886" }, { "Abbreviation": "MT", "State": "Montana", "Statehood": "1889", "Capital": "Helena", "LandArea": "14", "TheDate": { "display": "5/9/1889 8:20:57 AM", "timestamp": "18890509082057" }, "Population": "102991" }, { "Abbreviation": "NE", "State": "Nebraska", "Statehood": "1867", "Capital": "Lincoln", "LandArea": "74.6", "TheDate": { "display": "6/6/1867 3:52:53 PM", "timestamp": "18670606035253" }, "Population": "560536" }, { "Abbreviation": "NV", "State": "Nevada", "Statehood": "1864", "Capital": "Carson City", "LandArea": "143.4", "TheDate": { "display": "11/4/1864 1:45:18 AM", "timestamp": "18641104014518" }, "Population": "55274" }, { "Abbreviation": "NH", "State": "New Hampshire", "Statehood": "1788", "Capital": "Concord", "LandArea": "64.3", "TheDate": { "display": "5/24/1788 7:28:08 AM", "timestamp": "17880524072808" }, "Population": "42695" }, { "Abbreviation": "NJ", "State": "New Jersey", "Statehood": "1787", "Capital": "Trenton", "LandArea": "7.66", "TheDate": { "display": "6/18/1787 5:02:53 PM", "timestamp": "17870618050253" }, "Population": "451426" }, { "Abbreviation": "NM", "State": "New Mexico", "Statehood": "1912", "Capital": "Santa Fe", "LandArea": "37.3", "TheDate": { "display": "9/5/1912 4:42:14 PM", "timestamp": "19120905044214" }, "Population": "259496" }, { "Abbreviation": "NY", "State": "New York", "Statehood": "1788", "Capital": "Albany", "LandArea": "21.4", "TheDate": { "display": "5/3/1788 5:24:30 AM", "timestamp": "17880503052430" }, "Population": "955448" }, { "Abbreviation": "NC", "State": "North Carolina", "Statehood": "1789", "Capital": "Raleigh", "LandArea": "114.6", "TheDate": { "display": "6/23/1789 2:32:14 AM", "timestamp": "17890623023214" }, "Population": "1534382" }, { "Abbreviation": "ND", "State": "North Dakota", "Statehood": "1889", "Capital": "Bismarck", "LandArea": "26.9", "TheDate": { "display": "8/25/1889 2:15:09 AM", "timestamp": "18890825021509" }, "Population": "170051" }, { "Abbreviation": "OH", "State": "Ohio", "Statehood": "1803", "Capital": "Columbus", "LandArea": "210.3", "TheDate": { "display": "11/18/1803 2:14:28 AM", "timestamp": "18031118021428" }, "Population": "2789619" }, { "Abbreviation": "OK", "State": "Oklahoma", "Statehood": "1907", "Capital": "Oklahoma City", "LandArea": "607", "TheDate": { "display": "7/20/1907 2:03:52 PM", "timestamp": "19070720020352" }, "Population": "1832987" }, { "Abbreviation": "OR", "State": "Oregon", "Statehood": "1859", "Capital": "Salem", "LandArea": "45.7", "TheDate": { "display": "9/15/1859 7:26:09 AM", "timestamp": "18590915072609" }, "Population": "545375" }, { "Abbreviation": "PA", "State": "Pennsylvania", "Statehood": "1787", "Capital": "Harrisburg", "LandArea": "8.11", "TheDate": { "display": "4/14/1787 9:38:31 PM", "timestamp": "17870414093831" }, "Population": "696918" }, { "Abbreviation": "RI", "State": "Rhode Island", "Statehood": "1790", "Capital": "Providence", "LandArea": "18.5", "TheDate": { "display": "10/25/1790 2:15:46 PM", "timestamp": "17901025021546" }, "Population": "1808998" }, { "Abbreviation": "SC", "State": "South Carolina", "Statehood": "1788", "Capital": "Columbia", "LandArea": "125.2", "TheDate": { "display": "6/21/1788 5:14:27 PM", "timestamp": "17880621051427" }, "Population": "1045483" }, { "Abbreviation": "SD", "State": "South Dakota", "Statehood": "1889", "Capital": "Pierre", "LandArea": "13", "TheDate": { "display": "7/15/1889 11:51:55 AM", "timestamp": "18890715115155" }, "Population": "13646" }, { "Abbreviation": "TN", "State": "Tennessee", "Statehood": "1796", "Capital": "Nashville", "LandArea": "473.3", "TheDate": { "display": "2/2/1796 10:14:36 AM", "timestamp": "17960202101436" }, "Population": "2217974" }, { "Abbreviation": "TX", "State": "Texas", "Statehood": "1845", "Capital": "Austin", "LandArea": "251.5", "TheDate": { "display": "8/13/1845 3:30:43 AM", "timestamp": "18450813033043" }, "Population": "2506681" }, { "Abbreviation": "UT", "State": "Utah", "Statehood": "1896", "Capital": "Salt Lake City", "LandArea": "109.1", "TheDate": { "display": "11/14/1896 3:23:53 PM", "timestamp": "18961114032353" }, "Population": "1310637" }, { "Abbreviation": "VT", "State": "Vermont", "Statehood": "1791", "Capital": "Montpelier", "LandArea": "10.2", "TheDate": { "display": "3/27/1791 10:43:18 AM", "timestamp": "17910327104318" }, "Population": "7855" }, { "Abbreviation": "VA", "State": "Virginia", "Statehood": "1788", "Capital": "Richmond", "LandArea": "60.1", "TheDate": { "display": "1/1/1788 8:27:56 PM", "timestamp": "17880101082756" }, "Population": "1435889" }, { "Abbreviation": "WA", "State": "Washington", "Statehood": "1889", "Capital": "Olympia", "LandArea": "16.7", "TheDate": { "display": "10/27/1889 8:34:16 AM", "timestamp": "18891027083416" }, "Population": "281148" }, { "Abbreviation": "WV", "State": "West Virginia", "Statehood": "1863", "Capital": "Charleston", "LandArea": "31.6", "TheDate": { "display": "3/2/1863 10:30:00 AM", "timestamp": "18630302103000" }, "Population": "355614" }, { "Abbreviation": "WI", "State": "Wisconsin", "Statehood": "1848", "Capital": "Madison", "LandArea": "68.7", "TheDate": { "display": "4/2/1848 4:01:52 PM", "timestamp": "18480402040152" }, "Population": "794714" }, { "Abbreviation": "WY", "State": "Wyoming", "Statehood": "1890", "Capital": "Cheyenne", "LandArea": "21.1", "TheDate": { "display": "5/21/1890 3:30:46 AM", "timestamp": "18900521033046" }, "Population": "151204" }]
+
+        </script>
+        <script>
+            $(document).ready(function () {
+                var grid__states = $('#grid-states').DataTable({
+                    pagingType: 'full',
+                    columns: [
+                    { data: "Abbreviation", title: "Abbr", className: " hidden-xs", },
+                    { data: "State", title: "Name", },
+                    { data: "Statehood", title: "Year", },
+                    { data: "Capital", title: "Capital", sortable: false, },
+                    { data: "LandArea", title: "Land Area", },
+                    { data: "TheDate.display", sort: "TheDate.timestamp", title: "The Date", },
+                    { data: "Population", title: "Population", className: " visible-xs visible-sm", },
+                    ],
+                    order: [[2, 'desc'], [1, 'asc'], ],
+                    data: dbData,
+                });
+            });
+        </script>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/dataTables.fixedColumns.js"></script>
+}

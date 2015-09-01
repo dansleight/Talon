@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "CKEditor";
+}
+
+@section styles {
+
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">CKEditor</h3>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="panel-body form-horizontal">
+            <label class="col-md-2 control-label">Description</label>
+            <div class="col-md-10">
+                @Html.Talon().CKEditor("desc").Value("Hello <strong>World</strong>!").Focus()
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts {
+    <script src="~/Scripts/Talon/CKEditor/ckeditor.js"></script>
+}

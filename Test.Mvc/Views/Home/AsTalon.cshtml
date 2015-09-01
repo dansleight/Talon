@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "AsTalon";
+}
+
+@section styles {
+    <link href="~/Content/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/Content/talon.datatables.css" rel="stylesheet" />
+}
+
+<h2>AsTalon</h2>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">As Talon</h3>
+    </div>
+    <div class="panel-body">
+        @(Html.Talon().Grid(Test.Mvc.Models.StateModel.GetStates())
+            .Name("gridstates")
+            .Columns(c =>
+            {
+                c.Bound(x => x.Abbreviation).Title("Abbr").ResponsiveHide(ColumnResponsiveSize.xs);
+                c.Bound(x => x.State).Title("Name").Order(2, SortDir.asc);
+                c.Bound(x => x.Statehood).Title("Year").Order(1, SortDir.desc);
+                c.Bound(x => x.Capital).Sortable(false);
+                c.Bound(x => x.LandArea);
+                c.Bound(x => x.TheDate).Format("d");
+                c.Bound(x => x.Population).ResponsiveShow();
+                c.Render("dude").Title("Dude");
+                c.Buttons(b =>
+                {
+                    b.Button("editState").Icon("edit").Type("primary");
+                    b.Button("deleteState").Icon("times").Type("danger");
+                }).NoWrap();
+            })
+            .PagingType(PagingType.full)
+        //.PageSize(25)
+        //.ScrollX()
+        //.ScrollY(500)
+        //.Freeze()
+        )
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/dataTables.fixedColumns.js"></script>
+    <script src="~/Scripts/talon.datatables.js"></script>
+
+    <script>
+        var dude = function (data, type, row) {
+            return "'" + row["Abbreviation"] + "': " + row["Capital"];
+        }
+        var editState = function (data) {
+            alert("going to edit " + data["Abbreviation"]);
+        }
+        var deleteState = function (data) {
+            confirm("Are you sure you want to delete " + data["State"] + "?");
+        }
+    </script>
+
+}
+
+
+@* {"Method":"sweet","Title":null,"Icon":"flash","Type":null,"IconOnly":false} *@

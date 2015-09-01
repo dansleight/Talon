@@ -1,0 +1,54 @@
+﻿@model List<Test.Mvc.Models.PersonModel>
+@{
+    ViewBag.Title = "Javascript Based Column Rendering";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Javascript Based Column Rendering</h3>
+    </div>
+    <div class="panel-body panel-grid">
+        @(Html.Talon().Grid(Model).Name("people")
+            .Columns(c =>
+            {
+                c.Bound(m => m.ID);
+                c.Bound(m => m.Name);
+                c.Bound(m => m.Country);
+                c.Bound(m => m.Phone);
+                c.Bound(m => m.Email).Render("email_render");
+            })
+        )
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Markup</h3>
+    </div>
+    <div class="panel-body">
+<pre style="font-family:Consolas;font-size:13;color:black;background:white;"><span style="background:yellow;">@@(</span>Html.Talon().Grid(Model).Name(<span style="color:#a31515;">"people"</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;.Columns(c&nbsp;=&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.ID);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Name);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Country);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Phone);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Email).Render(<span style="color:#a31515;">"email_render"</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;})
+<span style="background:yellow;">)</span>
+
+<span style="color:blue;">&lt;</span><span style="color:maroon;">script</span><span style="color:blue;">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">var</span>&nbsp;email_render&nbsp;=&nbsp;<span style="color:blue;">function</span>&nbsp;(data,&nbsp;type,&nbsp;row)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">return</span>&nbsp;<span style="color:#a31515;">"&lt;a&nbsp;href=\"mailto:"</span>&nbsp;+&nbsp;row[<span style="color:#a31515;">"Email"</span>]&nbsp;+&nbsp;<span style="color:#a31515;">"\"&gt;"</span>&nbsp;+&nbsp;row[<span style="color:#a31515;">"Email"</span>]&nbsp;+&nbsp;<span style="color:#a31515;">"&lt;/a&gt;"</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<span style="color:blue;">&lt;/</span><span style="color:maroon;">script</span><span style="color:blue;">&gt;</span></pre>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        var email_render = function (data, type, row) {
+            return "<a href=\"mailto:" + row["Email"] + "\">" + row["Email"] + "</a>";
+        }
+    </script>
+}

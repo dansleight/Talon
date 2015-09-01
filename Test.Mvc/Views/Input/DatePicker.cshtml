@@ -1,0 +1,50 @@
+﻿@model Test.Mvc.Models.PersonModel
+@{
+    ViewBag.Title = "Date Picker";
+}
+
+@section styles {
+    <link href="~/Content/Talon/bootstrap-datepicker3.min.css" rel="stylesheet" />
+    <style>
+        .input-group.date {
+            max-width: 300px;
+        }
+        .form-control.date {
+            max-width: 300px;
+        }
+    </style>
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">CKEditor</h3>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="panel-body form-horizontal">
+            <div class="form-group">
+                @Html.BsLabelFor(m => m.Birthday)
+                <div class="col-md-10 date">
+                    @Html.Talon().DatePickerFor(m => m.Birthday)
+                    @*<div class="input-group date">
+                        <input type="text" name="Birthday" id="Birthday" class="form-control"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#Birthday').closest('.input-group').datepicker({
+                                orientation: 'top auto'
+                            });
+                        })
+                    </script>*@
+                    @Html.ValidationMessageFor(m => m.Birthday)
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts {
+    <script src="~/Scripts/Talon/bootstrap-datepicker.min.js"></script>
+
+}
+

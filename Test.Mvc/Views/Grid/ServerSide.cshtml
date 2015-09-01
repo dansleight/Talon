@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Server Side Processing";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Server Side Processing</h3>
+    </div>
+    <div class="panel-body">
+        @(Html.Talon().Grid<Test.Mvc.Models.PersonModel>()
+            .Name("people")
+            .Columns(c =>
+            {
+                c.Bound(m => m.ID);
+                c.Bound(m => m.Name);
+                c.Bound(m => m.Country);
+                c.Bound(m => m.Phone);
+                c.Bound(m => m.Email);
+            })
+            .AjaxSource(Url.Action("ServerSideData", "Grid"))
+        )
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Markup</h3>
+    </div>
+    <div class="panel-body">
+<pre style="font-family:Consolas;font-size:13;color:black;background:white;"><span style="background:yellow;">@@(</span>Html.Talon().Grid&lt;Test.Mvc.Models.<span style="color:#2b91af;">PersonModel</span>&gt;()
+&nbsp;&nbsp;&nbsp;&nbsp;.Name(<span style="color:#a31515;">"people"</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;.Columns(c&nbsp;=&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.ID);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Name);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Country);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Phone);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Bound(m&nbsp;=&gt;&nbsp;m.Email);
+&nbsp;&nbsp;&nbsp;&nbsp;})
+&nbsp;&nbsp;&nbsp;&nbsp;.AjaxSource(Url.Action(<span style="color:#a31515;">"ServerSideData"</span>,&nbsp;<span style="color:#a31515;">"Grid"</span>))
+<span style="background:yellow;">)</span></pre>
+    </div>
+</div>
+

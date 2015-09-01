@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Summernote";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Summernote</h3>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="panel-body form-horizontal">
+            <label class="col-md-2 control-label">Description</label>
+            <div class="col-md-10">
+                @Html.Talon().Summernote("desc").Value("Hello <strong>World</strong>!")
+            </div>
+        </div>
+    }
+</div>

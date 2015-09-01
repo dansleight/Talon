@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+
+    @* Items to be loaded when necessary *@
+    <link href="~/Content/Talon/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/Content/Talon/talon.datatables.css" rel="stylesheet" />
+    <link href="~/Content/Talon/summernote.css" rel="stylesheet" />
+    <link href="~/Content/Talon/summernote-bs3.css" rel="stylesheet" />
+
+    @RenderSection("styles", false)
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">Talon</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Grid <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">using DataTables plug-in</li>
+                            <li><a href="@Url.Action("Index", "Grid")">Basic</a></li>
+                            <li><a href="@Url.Action("Responsive", "Grid")">Responsive</a></li>
+                            <li><a href="@Url.Action("PageSort", "Grid")">Paging and Sorting</a></li>
+                            <li><a href="@Url.Action("Scrolling", "Grid")">Scrolling and Frozen Columns</a></li>
+                            <li><a href="@Url.Action("Formatting", "Grid")">Date Formatting</a></li>
+                            <li><a href="@Url.Action("Custom", "Grid")">Custom Column Template</a></li>
+                            <li><a href="@Url.Action("Render", "Grid")">Custom Javascript Rendering</a></li>
+                            <li><a href="@Url.Action("Buttons", "Grid")">Buttons</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("ServerSide", "Grid")">Server-Side Processing</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Inputs <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Summernote", "Input")">Summernote</a></li>
+                            <li><a href="@Url.Action("CKEditor", "Input")">CKEditor</a></li>
+                            <li><a href="@Url.Action("DatePicker", "Input")">Date Picker</a></li>
+                            <li><a href="@Url.Action("Select2", "Input")">Select2</a></li>
+                            <li class="disabled"><a href="@Url.Action("Plupload", "Input")">Plupload</a></li>
+                            <li class="disabled"><a href="@Url.Action("Dropzone", "Input")">Dropzone</a></li>
+                            <li class="disabled"><a href="@Url.Action("Typeahead", "Input")">Typeahead</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - EagleRock.net</p>
+    </footer>
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @* Items to be loaded when necessary *@
+    <script src="~/Scripts/Talon/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Talon/dataTables.fixedColumns.js"></script>
+    <script src="~/Scripts/Talon/talon.datatables.js"></script>
+    <script src="~/Scripts/Talon/summernote.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -94,6 +94,13 @@ namespace EagleRock.Bs.Grid
                     {
                         return ((DateTime)src.GetType().GetProperty(col.Member).GetValue(src, null)).ToString(col.Format);
                     }
+                    else if (col.Type == typeof(DateTime?) && !string.IsNullOrWhiteSpace(col.Format))
+                    {
+                        if (((DateTime?)src.GetType().GetProperty(col.Member).GetValue(src, null)).HasValue)
+                        {
+                            return ((DateTime?)src.GetType().GetProperty(col.Member).GetValue(src, null)).Value.ToString(col.Format);
+                        }
+                    }
                     return src.GetType().GetProperty(col.Member).GetValue(src, null).ToString();
                 }
             }

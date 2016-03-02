@@ -44,7 +44,7 @@ namespace EagleRock.Bs.Summernote
 
         protected void WriteHtml(HtmlTextWriter writer)
         {
-            writer.WriteLine(String.Format("<div name=\"{0}\" id=\"{0}\">{1}</div>", Name, Value));
+            writer.WriteLine(String.Format("<textarea name=\"{0}\" id=\"{0}\">{1}</textarea>", Name, Value));
             writer.RenderBeginTag(HtmlTextWriterTag.Script);
             writer.WriteLine("$(document).ready(function() {");
             writer.WriteLine("$('#{0}').summernote({{ height: {1}, minHeight: {2}, maxHeight: {3}, focus: {4} }})",
